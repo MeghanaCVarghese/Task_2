@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content=
+        "width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css"s/>  
+    <title>
+        Survey Form 
+    </title>
+
+    <style>
+
+        /* Styling the Body element i.e. Color,
+        Font, Alignment */
+        body {
+            background-color: #BEE1ED ;
+            font-family: Verdana;
+            text-align: center;
+        }
+
+        /* Styling the Form (Color, Padding, Shadow) */
+        form {
+            font-family: "Times New Roman";
+            background-color: #C4C9CB ;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 30px 20px;
+            box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+        }
+ 
+        /* Styling form-control Class */
+        .form-control {
+            text-align: left;
+            margin-bottom: 5px;
+        }
+ 
+        /* Styling form-control Label */
+        .form-control label {
+            display: block;
+            margin-bottom: 5px;
+        }
+ 
+        /* Styling form-control input,
+        select, textarea */
+        .form-control input,
+        .form-control select,
+        .form-control textarea {
+            border: 1px solid #777;
+            border-radius: 2px;
+            font-family: inherit;
+            padding: 10px;
+            display: block;
+            width: 95%;
+        }
+ 
+        /* Styling form-control Radio
+        button and Checkbox */
+        .form-control input[type="radio"],
+        .form-control input[type="checkbox"] {
+            display: inline-block;
+            width: auto;
+        }
+ 
+        /* Styling Button */
+        button {
+            background-color: #E0E8EB ;
+            border: 1px solid #777;
+            border-radius: 2px;
+            font-family: inherit;
+            font-size: 21px;
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+            margin-bottom: 10px;
+               }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: arial;
+}
+.star-rating form {
+    display: none;
+}
+.star-rating .thanks-msg {
+    display: none;
+    font-size: 20px;
+    margin: 40px auto;
+    color: #4caf50;
+    background-color: rgba(76, 175, 80, 0.1411764705882353);
+    padding: 8px 20px;
+    border-left: 3px solid #4caf50;
+    border-radius: 20px;
+}
+.star-rating input {
+    display: none;
+}
+.star-rating {
+    margin: 50px auto;
+    display: table;
+    width: 350px;
+}
+.star-rating label {
+    padding: 10px;
+    float: right;
+    font-size: 44px;
+    color: #eee;
+}
+.star-rating input:not(:checked) ~ label:hover,
+.star-rating input:not(:checked) ~ label:hover ~ label {
+    color: #ffc107;
+}
+.star-rating input:checked ~ label {
+    color: #ffc107;
+}
+.star-rating form .rating-reaction:before {
+    width: 100%;
+    float: left;
+    color: #ffc107;
+}
+.star-rating #rating-1:checked ~ form .rating-reaction:before {
+    content: "I hate it";
+}
+.star-rating #rating-2:checked ~ form .rating-reaction:before {
+    content: "I don't like it";
+}
+.star-rating #rating-3:checked ~ form .rating-reaction:before {
+    content: "It is good";
+}
+.star-rating #rating-4:checked ~ form .rating-reaction:before {
+    content: "I like it";
+}
+.star-rating #rating-5:checked ~ form .rating-reaction:before {
+    content: "I love it";
+}
+.star-rating input:checked ~ form {
+    border-top: 1px solid #ddd;
+    width: 80%;
+    padding-top: 5px;
+    margin-top: 5px;
+    display: inline-block;
+}
+.star-rating form .rating-reaction {
+    font-size: 24px;
+    float: left;
+    text-transform: capitalize;
+}
+.star-rating form .submit-rating {
+    border: none;
+    outline: none;
+    background: #795548;
+    color: #ffc107;
+    font-size: 18px;
+    border-radius: 4px;
+    padding: 5px 15px;
+    cursor: pointer;
+    float: right;
+}
+form .submit-rating:hover {
+    background-color: #333;
+}
+
+  </style>
+  <script>
+    const btn = document.querySelector(".submit-rating");
+const starRating = document.querySelector(".star-input");
+// Success msg show/hide
+btn.onclick = () => {
+    starRating.style.display = "none";
+    return false;
+};
+</script>
+</head>
+  
+<body>
+    <h1>Survey Form</h1>
+
+    <!-- Create Form -->
+    <form id="form">
+ 
+        <!-- Details -->
+ <div class="form-control">
+            <label for="name" id="label-name">
+               1.Name
+            </label>
+ 
+            
+            <input type="text"
+                   id="name"
+                   placeholder="Enter your name" />
+        </div>
+
+<div class="form-control">
+            <label for="email" id="label-email">
+                2.Email ID
+            </label>
+ 
+           
+            <input type="email"
+                   id="email"
+                   placeholder="Enter your email" />
+        </div>
+
+ <div class="form-control">
+            <label for="age" id="label-age">
+                3.Age
+            </label>
+ 
+            
+            <input type="text"
+                   id="age"
+                   placeholder="Enter your age" />
+        </div>
+
+<div class="form-control">
+            <label for="contact" id="label-contact">
+                4.Contact Details
+            </label>
+ 
+           
+            <input type="number"
+                   id="contact"
+                   placeholder="Enter your phone number" />
+        </div>
+
+        <div class="form-control">
+        
+            <label>
+               5.Will you recommend this college to others?
+            </label>
+ <div class="star-rating">
+            <div class="thanks-msg">Thanks for your feedback !!!</div>
+            <div class="star-input">
+                <form>
+                <table>
+                <tr>
+                <td >
+                     <label for="rating-1" class="fas fa-star"></label>
+
+                </td>
+                <td>
+                    <label for="rating-2" class="fas fa-star"></label>
+                </td> 
+                <td>
+                    <label for="rating-3" class="fas fa-star"></label>
+                </td>
+                <td>
+                    <label for="rating-4" class="fas fa-star"></label>
+                </td>
+                <td>
+                    <label for="rating-5" class="fas fa-star"></label>
+                </td>
+                </tr>
+                <tr>
+                     <td align="center">
+                     <input type="radio" name="rating" id="rating-1">
+
+                </td>
+                <td align="center"><input type="radio" name="rating" id="rating-2">
+                    
+                </td> 
+                <td align="center">
+                     <input type="radio" name="rating" id="rating-3">
+
+                </td>
+                <td align="center">
+                     <input type="radio" name="rating" id="rating-4">
+
+                </td>
+                <td align="center">
+                     <input type="radio" name="rating" id="rating-5">
+
+                </td>
+                </tr>
+            </table>
+            
+                    <span class="rating-reaction"></span>
+                </form>
+            
+            </div>
+        </div>
+
+
+        <div class="form-control">
+            <label><br>
+
+                 6.Are you satisfied with the teaching staff and their teaching methods?
+            </label>
+            <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed">Extremely satisfied</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed">Very satisfied</input>
+            </label>
+             <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed">satisfied</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed">Neutral</input>
+            </label>
+             <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed">Dissatisfied</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed">Very dissatisfied</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed">Extremely dissatisfied</input>
+            </label>
+
+            </label>
+        </div>
+        <div class="form-control">
+            <label><br>
+               7.How satisfied are you with the facilities provided by the college?
+            </label>
+            <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed1">Extremely satisfied</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed1">Very satisfied</input>
+            </label>
+             <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed1">satisfied</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed1">Neutral</input>
+            </label>
+             <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed1">Dissatisfied</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed1">Very dissatisfied</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed1">Extremely dissatisfied</input>
+            </label>
+
+            </label>
+        </div>
+  
+        <div class="form-control">
+            <label for="role" id="label-role"><br>
+                8.Was it easy to obtain the necessary resources from the college library?
+            </label>
+             
+
+              <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed2">Yes</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed2">No</input>
+            </label>
+            
+        </div>
+  
+        <div class="form-control">
+            <label><br>
+                9.Is it easy to obtain the necessary resources from the college library?
+            </label>
+ 
+            <!-- Input Type Radio Button -->
+            <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed3">Yes</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed3">No</input>
+            </label>
+          
+            </label>
+        </div>
+  
+        <div class="form-control"><br>
+            <label>10.Do you feel it is easier to register for different courses within the college?
+            
+            <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed4">Extremely satisfied</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed4">Very satisfied</input>
+            </label>
+             <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed4">satisfied</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed4">Neutral</input>
+            </label>
+             <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed4">Dissatisfied</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed4">Very dissatisfied</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed4">Extremely dissatisfied</input>
+            </label>
+
+            </label>
+        </div>
+            <div class="form-control"><br>
+            <label>11. How satisfied are you with the cleanliness and variety of food items available in the cafeteria?
+            
+            <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed5">Extremely satisfied</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed5">Very satisfied</input>
+            </label>
+             <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed5">satisfied</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed5">Neutral</input>
+            </label>
+             <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed5">Dissatisfied</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed5">Very dissatisfied</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed5">Extremely dissatisfied</input>
+            </label>
+
+
+
+<div class="form-control"><br>
+            <label>12.How supportive were the faculty members?
+
+                
+            <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed6">Extremely supportive</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed6">Very supportive</input>
+            </label>
+             <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed6">supportive</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed6">Neutral</input>
+            </label>
+             <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed6">Unsupportive</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed6">Very unsupportive</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed6">Extremely unsupportive</input>
+            </label>
+
+<div class="form-control"><br>
+            <label>13.What do you think of the hostel?
+
+
+               
+            <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed7">Extremely crowded</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed7">Very crowded</input>
+            </label>
+             <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed7">Somewhat crowded</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed7">Not so crowded</input>
+            </label>
+             <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed7">Not at all crowded</input>
+           </label>
+<div class="form-control">
+            <label><br>
+                 14.Are you satisfied with the teaching staff and their teaching practices?
+            </label>
+ 
+           
+            <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed8">Yes</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed8">No</input>
+            </label>
+
+
+<div class="form-control"><br>
+            <label>15.Do you think faculty and support staff at the college were helpful?
+
+
+            <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed9">Very helpful</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed9">Helpful</input>
+            </label>
+             <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed9">Neither helpful nor unhelpful</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed9">Unhelpful</input>
+            </label>
+             <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed9">Very unhelpful</input>
+           </label>
+
+<div class="form-control"><br>
+            <label>16.How likely are you to continue attending this college next year?
+
+
+            <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed10">Extremely likely</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed10">Very likely</input>
+            </label>
+             <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed10">Somewhat likely</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed10">Not so likely</input>
+            </label>
+             <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed10">Not at all likely</input>
+           </label>
+
+<div class="form-control"><br>
+            <label>17.How satisfied are you with the accommodation?
+
+
+            <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed11">Extremely satisfied</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed11">Very satisfied</input>
+            </label>
+             <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed11">satisfied</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed11">Neutral</input>
+            </label>
+             <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed11">Dissatisfied</input>
+           </label>
+             <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed11">Very dissatisfied</input>
+           </label>
+
+<label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed11">Extremely dissatisfied</input>
+           </label>
+
+<div class="form-control"><br>
+            <label>18.Given a chance, are you willing to pursue another course at the college?
+
+
+            <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed12">Definitely, Yes</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed12">Probably, Yes</input>
+            </label>
+             <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed12">Probably, No</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed12">Definitely, No</input>
+            </label>
+             <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed12">Can’t say</input>
+           
+<div class="form-control"><br>
+            <label>19.Do you think your siblings or friends will be benefited by studying at this college?
+
+
+            <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed13">Definitely, Yes</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed13">Probably, Yes</input>
+            </label>
+             <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed13">Probably, No</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed13">Definitely, No</input>
+            </label>
+             <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed13">Can’t say</input>
+
+<div class="form-control"><br>
+            <label>20.How many hours a week do you work your part-time job?
+
+
+            <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed14">I don’t have a job</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed14">1-10 hours a week</input>
+            </label>
+             <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed14">11-15 hours a week</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed14">16-20 hours a week</input>
+            </label>
+             <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed14">More than 20 hours a week</input>
+
+<div class="form-control"><br>
+            <label>21.How about your overall experience with this college?
+
+
+            <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed15">I don’t have a job</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed15">No, I manage them both well</input>
+            </label>
+             <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed15">Yes, but rarely</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed15">Yes, often</input>
+            </label>
+             <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed15">Yes, always</input>
+
+<div class="form-control"><br>
+            <label>22.What do you think about extracurricular activities?
+
+
+            <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed16">They are too few</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed16">They are just right</input>
+            </label>
+             <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed16">I was overwhelmed with the number</input>
+            </label>
+
+<div class="form-control"><br>
+            <label>23.Do you think that the college takes enough measures to curb racial and ethnic bias?
+
+
+            <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed17">Definitely, Yes</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed17">Probably, Yes</input>
+            </label>
+             <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed17">Probably, No</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed17">Definitely, No</input>
+            </label>
+             <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed17">Can’t say</input>
+
+        <div class="form-control">
+            <label for="comment"><br>
+                24.Please provide us with additional feedback on areas that need improvement
+            </label>
+ 
+            <!-- multi-line text input control -->
+            <textarea name="comment" id="comment"
+                placeholder="Enter your comment here">
+            </textarea>
+        </div>
+  <div class="section-2-results"></div>
+
+        <!-- Multi-line Text Input Control -->
+        <button type="submit" value="submit onclick="displayRadioValue()">
+            Submit
+        </button>
+    </form>
+
+<script>
+    function SURVEYFORM() {
+        var name = document.forms["RegForm"]["Name"];
+        var email = document.forms["RegForm"]["Email ID"];
+        var age = document.forms["RegForm"]["Age"];
+        var contact = document.forms["RegForm"]["Contact Details"];
+       
+        if (name.value == "") {
+            window.alert("Enter your name.");
+            name.focus();
+            return false;
+        }
+  
+        if (email.value == "") {
+            window.alert("Enter your email.");
+            address.focus();
+            return false;
+        }
+  
+        if (email.value == "") {
+            window.alert(
+              "Please enter a valid e-mail address.");
+            email.focus();
+            return false;
+        }
+  
+        if (contact.value == "") {
+            window.alert(
+              "Enter your phone number.");
+            phone.focus();
+            return false;
+        }
+  
+  
+        return true;
+    }
+</script>
+
+</body>
+  
+</html>
